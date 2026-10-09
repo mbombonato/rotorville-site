@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rotorville</title>
+<meta name="description" content="Rotorville: fly rescue helicopters over a living city.">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+	<header>
+		<img src="img/icon.png" alt="">
+		<h1>Rotorville</h1>
+		<nav class="lang">
+			<button type="button" data-set="en" aria-pressed="true">EN</button>
+			<button type="button" data-set="pt" aria-pressed="false">PT</button>
+		</nav>
+	</header>
+	<img class="hero" src="img/feature.jpg" alt="Rotorville">
+
+	<section data-lang="en">
+		<p>Fly rescue, fire, police and news helicopters over a procedural city that grows with your career.
+		Answer emergency calls, land on rooftops, hoist survivors from the sea, fight fires with a water
+		bucket, chase suspects and keep the city running through rain, storms, fog and night.</p>
+		<div class="shots">
+			<img src="img/shot1_en-US.jpg" alt=""><img src="img/shot2_en-US.jpg" alt=""><img src="img/shot3_en-US.jpg" alt="">
+		</div>
+		<p><a href="privacy.html#en">Privacy policy</a> · Contact: nom4d3@gmail.com</p>
+	</section>
+
+	<section data-lang="pt" hidden>
+		<p>Pilote helicópteros de resgate, bombeiro, polícia e jornalismo sobre uma cidade procedural que cresce
+		com a sua carreira. Atenda chamados de emergência, pouse em telhados, içe sobreviventes do mar, apague
+		incêndios com o balde d'água, persiga suspeitos e mantenha a cidade funcionando na chuva, na tempestade,
+		na neblina e à noite.</p>
+		<div class="shots">
+			<img src="img/shot1_pt-BR.jpg" alt=""><img src="img/shot2_pt-BR.jpg" alt=""><img src="img/shot3_pt-BR.jpg" alt="">
+		</div>
+		<p><a href="privacy.html#pt">Política de privacidade</a> · Contato: nom4d3@gmail.com</p>
+	</section>
+
+	<footer>© 2026 Rotorville</footer>
+</div>
+<script>
+(function () {
+	var buttons = document.querySelectorAll("[data-set]");
+	function show(lang) {
+		document.querySelectorAll("[data-lang]").forEach(function (s) { s.hidden = s.dataset.lang !== lang; });
+		buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.set === lang)); });
+		document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+	}
+	buttons.forEach(function (b) { b.addEventListener("click", function () { show(b.dataset.set); }); });
+	show((navigator.language || "").toLowerCase().indexOf("pt") === 0 ? "pt" : "en");
+})();
+</script>
+</body>
+</html>
